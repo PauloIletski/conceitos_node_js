@@ -4,14 +4,13 @@ const cors = require("cors");
 const { uuid, isUuid } = require("uuidv4");
 
 const app = express();
-
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+
 
 const repositories = [];
 
 app.get("/repositories", (request, response) => {
-
   return response.json(repositories);
 
 });
@@ -92,7 +91,7 @@ app.post("/repositories/:id/like", (request, response) => {
 
   repositories[repositoryIndex] = repository;
 
-  return response.json(repository);
+  return response.json(repositories);
 });
 
 module.exports = app;
