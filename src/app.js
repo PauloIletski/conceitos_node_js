@@ -85,7 +85,7 @@ app.post("/repositories/:id/like", (request, response) => {
     return response.status(400).json({ response: 'Project not found' });
   }
 
-  const repository = repositories[repositoryIndex]
+  const repository = repositories.map(repository=>{return {... repositories, repository.id===repository_id? likes=likes+1:repository.likes}})
 
   repository.likes += 1
 
