@@ -87,8 +87,6 @@ app.post("/repositories/:id/like", (request, response) => {
 
   const repository = repositories.map(repository=>{return {... repositories, repository.id===repository_id? likes=likes+1:repository.likes}})
 
-
-
   repositories[repositoryIndex] = repository;
 
   return response.json(repositories);
